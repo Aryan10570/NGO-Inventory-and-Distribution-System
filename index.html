@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation Center Inventory System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Donation Center</h1>
+    <p>Inventory and Distribution System</p>
+</header>
+
+<nav>
+    <a href="#donations">Donations</a>
+    <a href="#inventory">Inventory</a>
+    <a href="#recipients">Recipient Requirements</a>
+    <a href="#distribution">Distribution</a>
+</nav>
+
+<div class="container">
+
+    <h2>Welcome to Donation Center</h2>
+    <p>This website helps us manage donated items and distribute
+       them to people who need them.</p>
+
+    <div class="summary">
+        <div class="card">
+            <h3>Total Items Available</h3>
+            <p id="totalItems">0</p>
+        </div>
+        <div class="card">
+            <h3>Donation Records</h3>
+            <p id="totalDonations">0</p>
+        </div>
+        <div class="card">
+            <h3>Recipient Requests</h3>
+            <p id="totalRequests">0</p>
+        </div>
+    </div>
+
+    <section id="donations">
+        <h2>Add Donation</h2>
+        <form id="donationForm">
+            <label>Donor Name</label>
+            <input id="donor" type="text" required>
+            <label>Contact Number</label>
+            <input id="donor" type="text" required>
+            <label>Item Name</label>
+            <input id="itemName" type="text" required>
+
+            <label>Category</label>
+            <select id="category" required>
+                <option value="">Select Category</option>
+                <option>Food</option>
+                <option>Clothing</option>
+                <option>Furniture</option>
+                <option>Books</option>
+                <option>Toys</option>
+                <option>Other</option>
+            </select>
+
+            <label>Quantity</label>
+            <input id="quantity" type="number" min="1" step="1" required>
+
+            <label>Item Condition</label>
+            <select id="condition" required>
+                <option value="">Select Condition</option>
+                <option>New</option>
+                <option>Good</option>
+                <option>Needs Repair</option>
+            </select>
+
+            <button type="submit">Add Donation</button>
+        </form>
+    </section>
+
+    <section id="inventory">
+        <h2>Available Inventory</h2>
+
+        <input id="search" type="search"
+               placeholder="Search items or category...">
+
+        <div class="table-box">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Category</th>
+                        <th>Quantity</th>
+                        <th>Condition</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="inventoryTable"></tbody>
+            </table>
+        </div>
+        <p id="inventoryEmpty">No items available yet.</p>
+    </section>
+
+    <section id="recipients">
+        <h2>Recipient Requirements</h2>
+
+        <form id="requestForm">
+            <label>Recipient Name / Organization</label>
+            <input id="recipientName" type="text" required>
+
+            <label>Required Category</label>
+            <select id="requiredCategory" required>
+                <option value="">Select Category</option>
+                <option>Food</option>
+                <option>Clothing</option>
+                <option>Furniture</option>
+                <option>Books</option>
+                <option>Other</option>
+            </select>
+
+            <label>Required Item</label>
+            <input id="requiredItem" type="text" required>
+
+            <label>Required Quantity</label>
+            <input id="requiredQuantity" type="number"
+                   min="1" step="1" required>
+
+            <button type="submit">Add Requirement</button>
+        </form>
+
+        <div class="table-box">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Recipient</th>
+                        <th>Category</th>
+                        <th>Required Item</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="requestTable"></tbody>
+            </table>
+        </div>
+        <p id="requestEmpty">No recipient requirements added yet.</p>
+    </section>
+
+    <section id="distribution">
+        <h2>Allocate and Distribute Items</h2>
+
+        <form id="allocationForm">
+            <label>Select Recipient Request</label>
+            <select id="requestSelect" required>
+                <option value="">Select Requirement</option>
+            </select>
+
+            <label>Select Inventory Item</label>
+            <select id="inventorySelect" required>
+                <option value="">Select Item</option>
+            </select>
+
+            <label>Allocation Quantity</label>
+            <input id="allocationQuantity" type="number"
+                   min="1" step="1" required>
+
+            <button type="submit">Allocate Item</button>
+        </form>
+
+        <div class="table-box">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Recipient</th>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="distributionTable"></tbody>
+            </table>
+        </div>
+        <p id="distributionEmpty">No distribution records yet.</p>
+    </section>
+
+</div>
+
+<footer>
+    <p>Donation Center Inventory and Distribution System</p>
+
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
